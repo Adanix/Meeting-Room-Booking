@@ -86,6 +86,17 @@
                             <h2 class="text-base font-bold text-slate-900">{{ __('rooms.choose_date') }} & Room</h2>
                         </div>
 
+                        @if($room->photoUrl())
+                            <div class="mb-5 relative h-36 sm:h-44 rounded-xl overflow-hidden border border-slate-200 shadow-xs">
+                                <img src="{{ $room->photoUrl() }}" alt="{{ $room->localizedName() }}" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent"></div>
+                                <div class="absolute bottom-3 left-4 text-white">
+                                    <span class="text-base font-bold block">{{ $room->localizedName() }}</span>
+                                    <span class="text-xs text-slate-300">{{ $room->location }} &bull; Max {{ $room->capacity }} people</span>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <!-- Room Switcher -->
                             <div>
@@ -267,9 +278,13 @@
 
                     <!-- Room Mini-Card -->
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center shrink-0">
-                            {{ substr($room->name_en, 0, 1) }}
-                        </div>
+                        @if($room->photoUrl())
+                            <img src="{{ $room->photoUrl() }}" alt="{{ $room->localizedName() }}" class="w-12 h-12 rounded-xl object-cover shrink-0 border border-slate-200 shadow-xs">
+                        @else
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center shrink-0">
+                                {{ substr($room->name_en, 0, 1) }}
+                            </div>
+                        @endif
                         <div class="min-w-0">
                             <div class="text-sm font-bold text-slate-900 truncate">{{ $room->localizedName() }}</div>
                             <div class="text-xs text-slate-500 truncate">{{ $room->location }}</div>

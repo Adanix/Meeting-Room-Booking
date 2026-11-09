@@ -53,6 +53,17 @@
                 Meeting Details
             </h2>
 
+            @if($booking->room && $booking->room->photoUrl())
+                <div class="relative h-40 sm:h-48 rounded-xl overflow-hidden border border-slate-200 shadow-xs">
+                    <img src="{{ $booking->room->photoUrl() }}" alt="{{ $booking->room->localizedName() }}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4 text-white">
+                        <span class="text-base font-bold block">{{ $booking->room->localizedName() }}</span>
+                        <span class="text-xs text-slate-300">{{ $booking->room->location }} &bull; Capacity: {{ $booking->room->capacity }} people</span>
+                    </div>
+                </div>
+            @endif
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div>
                     <span class="text-slate-500 block">Meeting Title:</span>

@@ -17,6 +17,7 @@ use App\Services\IcsGeneratorService;
 use App\Services\SimulatedEmailDeliveryService;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -26,6 +27,21 @@ class DatabaseSeeder extends Seeder
     {
         $tz = 'Europe/Belgrade';
         $today = Carbon::today($tz);
+
+        // Ensure room demo photos exist in storage/app/public/rooms
+        $demoRoomsSource = public_path('images/rooms');
+        $storageRoomsDest = storage_path('app/public/rooms');
+        if (File::isDirectory($demoRoomsSource)) {
+            if (!File::isDirectory($storageRoomsDest)) {
+                File::makeDirectory($storageRoomsDest, 0755, true);
+            }
+            foreach (File::files($demoRoomsSource) as $file) {
+                $destFile = $storageRoomsDest . '/' . $file->getFilename();
+                if (!File::exists($destFile)) {
+                    File::copy($file->getPathname(), $destFile);
+                }
+            }
+        }
 
         // 1. Seed Users
         $admin = User::updateOrCreate(
@@ -148,6 +164,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Premier executive boardroom equipped with dual 4K displays, studio-grade video conferencing bar, and seating for 16.',
                 'description_sr' => 'Vrhunska izvršna sala opremljena dvostrukim 4K ekranima, profesionalnim video sistemom i kapacitetom od 16 mesta.',
                 'color_hex' => '#4F46E5',
+                'photo_path' => 'rooms/nikola-tesla-boardroom.jpg',
                 'is_active' => true,
                 'sort_order' => 1,
                 'equipments' => [
@@ -167,6 +184,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Collaborative workshop space with interactive ultra-short throw projector and wall-to-wall magnetic glassboards.',
                 'description_sr' => 'Prostor za radionice sa interaktivnim projektorom i magnetnim staklenim tablama duž celog zida.',
                 'color_hex' => '#0D9488',
+                'photo_path' => 'rooms/mihajlo-pupin-lab.jpg',
                 'is_active' => true,
                 'sort_order' => 2,
                 'equipments' => [
@@ -185,6 +203,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Mid-size meeting room tailored for project standups, sprint reviews, and client video presentations.',
                 'description_sr' => 'Sala srednje veličine pogodna za timske sastanke, pregled sprinta i video prezentacije klijentima.',
                 'color_hex' => '#2563EB',
+                'photo_path' => 'rooms/milutin-milankovic.jpg',
                 'is_active' => true,
                 'sort_order' => 3,
                 'equipments' => [
@@ -202,6 +221,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Acoustically treated huddle pod designed for 1-on-1 reviews, interviews, and deep focus sessions.',
                 'description_sr' => 'Akustično izolovana manja sala za intervjue, 1-na-1 sastanke i fokusiran timski rad.',
                 'color_hex' => '#7C3AED',
+                'photo_path' => 'rooms/avalon-focus-pod-a.jpg',
                 'is_active' => true,
                 'sort_order' => 4,
                 'equipments' => [
@@ -218,6 +238,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Fast-access room located near the main coffee hub for quick 15-to-30 minute coordination meetings.',
                 'description_sr' => 'Brzo dostupna sala blizu kafea za kratke koordinacione sastanke od 15 do 30 minuta.',
                 'color_hex' => '#D97706',
+                'photo_path' => 'rooms/danube-quick-sync.jpg',
                 'is_active' => true,
                 'sort_order' => 5,
                 'equipments' => [
@@ -234,6 +255,7 @@ class DatabaseSeeder extends Seeder
                 'description_en' => 'Private VIP suite reserved exclusively for board directors and confidential negotiations.',
                 'description_sr' => 'Privatni VIP salon rezervisan isključivo za upravni odbor i poverljive pregovore.',
                 'color_hex' => '#64748B',
+                'photo_path' => 'rooms/executive-lounge-vip.jpg',
                 'is_active' => false,
                 'sort_order' => 6,
                 'equipments' => [

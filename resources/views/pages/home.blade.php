@@ -38,11 +38,65 @@
                         <span>{{ __('Read Feature Guide') }} &rarr;</span>
                     </a>
                 </div>
+
+                <!-- Hero Workspace Visual Mockup Banner -->
+                <div class="mt-12 max-w-5xl mx-auto">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl bg-slate-900 group">
+                        <!-- Browser Window Top Bar Chrome -->
+                        <div class="h-10 bg-slate-900/90 border-b border-slate-800 px-4 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                                <span class="ml-2 text-[11px] font-mono text-slate-400">room-booking.adanix.my.id/rooms</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                                    Enterprise Scheduling Engine
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Image & Interactive Overlay -->
+                        <div class="relative h-64 sm:h-96 md:h-[420px] overflow-hidden">
+                            <img src="{{ asset('images/hero-workspace.jpg') }}" alt="ROOMS Enterprise Workspace Atrium"
+                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20"></div>
+
+                            <!-- Floating Live UI Cards inside Hero -->
+                            <div class="absolute inset-x-4 bottom-6 sm:inset-x-8 sm:bottom-8 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4">
+                                <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-lg border border-white/40 max-w-md text-left">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">6 Spaces Live & Synchronized</span>
+                                    </div>
+                                    <h3 class="text-base sm:text-lg font-black text-slate-900">
+                                        Frictionless Meeting Room Scheduling
+                                    </h3>
+                                    <p class="text-xs text-slate-600 mt-1">
+                                        Self-service reservations with Google Calendar & Outlook .ics sync, strict overlap prevention, and bilingual support.
+                                    </p>
+                                </div>
+
+                                <div class="hidden md:flex flex-col gap-2 shrink-0">
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700 text-white text-xs font-semibold shadow-md">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                        <span>Nikola Tesla Boardroom &bull; Available</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700 text-white text-xs font-semibold shadow-md">
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                        <span>Pupin Lab &bull; In Use until 14:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Live Room Status Preview Widget (3 Real Rooms) -->
-            <div class="mt-14 max-w-5xl mx-auto">
-                <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <!-- Live Room Status Preview Widget (3 Real Rooms with Photos) -->
+            <div class="mt-16 max-w-5xl mx-auto">
+                <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
                     <div>
                         <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500">Live Workspace Status</h2>
                         <p class="text-xs text-slate-400">Real-time availability preview calculated from server clock and active bookings</p>
@@ -52,36 +106,56 @@
                     </a>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     @foreach($roomsWithStatus as $item)
                         @php
                             $room = $item['room'];
                             $status = $item['status'];
+                            $photo = $room->photoUrl();
                         @endphp
-                        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center justify-between gap-2 mb-3">
-                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border {{ $status['badge_class'] }}">
-                                        <span class="w-2 h-2 rounded-full {{ $status['dot_class'] }}"></span>
-                                        <span>{{ $status['label'] }}</span>
-                                    </span>
-                                    <span class="text-xs font-medium text-slate-500">
-                                        Max {{ $room->capacity }} ppl
-                                    </span>
+                                <!-- Room Photo Header with Overlay Badges -->
+                                <div class="relative w-full aspect-video bg-slate-900 overflow-hidden">
+                                    @if($photo)
+                                        <img src="{{ $photo }}" alt="{{ $room->localizedName() }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
+                                    @else
+                                        <div class="w-full h-full flex items-center justify-center bg-slate-800 text-white">
+                                            <span class="text-xs font-bold uppercase">{{ $room->localizedName() }}</span>
+                                        </div>
+                                    @endif
+
+                                    <!-- Floating Live Status Badge -->
+                                    <div class="absolute top-3 left-3">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border backdrop-blur-md bg-white/95 {{ $status['badge_class'] }} shadow-xs">
+                                            <span class="w-2 h-2 rounded-full {{ $status['dot_class'] }}"></span>
+                                            <span>{{ $status['label'] }}</span>
+                                        </span>
+                                    </div>
+
+                                    <!-- Capacity Floating Badge -->
+                                    <div class="absolute top-3 right-3">
+                                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-900/80 text-white backdrop-blur-xs">
+                                            {{ $room->capacity }} ppl
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <h3 class="text-base font-bold text-slate-900 truncate">
-                                    {{ $room->localizedName() }}
-                                </h3>
-                                <p class="text-xs text-slate-500 mt-0.5 truncate">
-                                    {{ $room->location }}
-                                </p>
-                                <p class="text-xs font-medium text-slate-600 mt-2">
-                                    {{ $status['subtitle'] }}
-                                </p>
+                                <div class="p-5">
+                                    <h3 class="text-base font-bold text-slate-900 truncate group-hover:text-indigo-600 transition-colors">
+                                        {{ $room->localizedName() }}
+                                    </h3>
+                                    <p class="text-xs text-slate-500 mt-0.5 truncate">
+                                        {{ $room->location }}
+                                    </p>
+                                    <p class="text-xs font-medium text-slate-600 mt-2">
+                                        {{ $status['subtitle'] }}
+                                    </p>
+                                </div>
                             </div>
 
-                            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            <div class="px-5 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between">
                                 <div class="flex items-center gap-1 text-[11px] text-slate-400 truncate max-w-[150px]">
                                     @foreach($room->equipments->take(2) as $eq)
                                         <span class="truncate">{{ $eq->localizedLabel() }}@if(!$loop->last),@endif</span>

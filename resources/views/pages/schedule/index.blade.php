@@ -104,16 +104,21 @@
                 @foreach($rooms as $room)
                     <div class="grid grid-cols-12 items-center py-4 hover:bg-slate-50/50 transition-colors">
                         <!-- Sticky Room Label (3 cols) -->
-                        <div class="col-span-3 px-4 min-w-0">
-                            <div class="flex items-center gap-2">
+                        <div class="col-span-3 px-4 min-w-0 flex items-center gap-3">
+                            @if($room->photoUrl())
+                                <img src="{{ $room->photoUrl() }}" alt="{{ $room->localizedName() }}"
+                                     class="w-10 h-10 rounded-lg object-cover shrink-0 border border-slate-200 shadow-2xs">
+                            @else
                                 <span class="w-3 h-3 rounded-full shrink-0" style="background-color: {{ $room->color_hex }};"></span>
+                            @endif
+                            <div class="min-w-0">
                                 <h3 class="text-xs font-bold text-slate-900 truncate">
                                     {{ $room->localizedName() }}
                                 </h3>
+                                <p class="text-[11px] text-slate-400 mt-0.5 truncate">
+                                    Cap: {{ $room->capacity }} &bull; {{ $room->location }}
+                                </p>
                             </div>
-                            <p class="text-[11px] text-slate-400 mt-0.5 truncate pl-5">
-                                Cap: {{ $room->capacity }} &bull; {{ $room->location }}
-                            </p>
                         </div>
 
                         <!-- Schedule Bar (9 cols) -->

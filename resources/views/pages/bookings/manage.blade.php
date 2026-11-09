@@ -92,6 +92,18 @@
                     <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 pb-2">
                         Current Schedule
                     </h3>
+
+                    @if($booking->room && $booking->room->photoUrl())
+                        <div class="relative h-28 rounded-xl overflow-hidden border border-slate-200 shadow-xs">
+                            <img src="{{ $booking->room->photoUrl() }}" alt="{{ $booking->room->localizedName() }}" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-3 text-white">
+                                <span class="text-xs font-bold block">{{ $booking->room->localizedName() }}</span>
+                                <span class="text-[10px] text-slate-300">{{ $booking->room->location }}</span>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="text-xs space-y-2">
                         <div>
                             <span class="text-slate-500 block">Status:</span>

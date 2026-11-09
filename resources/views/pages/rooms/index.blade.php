@@ -102,12 +102,13 @@
                 $freeSlots = $item['free_slots_count'];
                 $photo = $room->photoUrl();
             @endphp
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
                     <!-- Photo Header / Fallback SVG Illustration -->
                     <div class="relative w-full aspect-video bg-gradient-to-tr from-slate-800 to-indigo-950 overflow-hidden flex items-center justify-center text-white">
                         @if($photo)
-                            <img src="{{ $photo }}" alt="{{ $room->localizedName() }}" class="w-full h-full object-cover">
+                            <img src="{{ $photo }}" alt="{{ $room->localizedName() }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
                         @else
                             <!-- Clean Architectural Line Art SVG Fallback -->
                             <div class="text-center p-4">

@@ -21,12 +21,13 @@
         <!-- Rooms List -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse ($rooms as $room)
-                <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between transition hover:shadow-md">
+                <div class="group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between transition hover:shadow-md">
                     <div>
                         <!-- Room Header / Image -->
-                        <div class="relative h-44 bg-slate-100 overflow-hidden">
+                        <div class="relative h-44 bg-slate-900 overflow-hidden">
                             @if ($room->photo_path)
-                                <img src="{{ asset('storage/' . $room->photo_path) }}" alt="{{ $room->name_en }}" class="w-full h-full object-cover">
+                                <img src="{{ asset('storage/' . $room->photo_path) }}" alt="{{ $room->name_en }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
                             @else
                                 <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
                                     <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-inner" style="background-color: {{ $room->color_hex }}">

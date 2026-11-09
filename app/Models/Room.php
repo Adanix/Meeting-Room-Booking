@@ -80,8 +80,15 @@ class Room extends Model
 
     public function photoUrl(): ?string
     {
-        if ($this->photo_path && Storage::disk('public')->exists($this->photo_path)) {
-            return Storage::disk('public')->url($this->photo_path);
+        if ($this->photo_path) {
+            $clean = ltrim($this->photo_path, '/');
+            if (file_exists(public_path('storage/' . $clean))) {
+                return asset('storage/' . $clean);
+            }
+            if (file_exists(public_path('images/' . $clean))) {
+                return asset('images/' . $clean);
+            }
+            return asset('storage/' . $clean);
         }
 
         return null;
