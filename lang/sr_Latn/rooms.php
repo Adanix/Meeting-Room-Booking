@@ -1,0 +1,106 @@
+<?php
+
+return [
+    'app_name' => 'ROOMS',
+    'app_tagline' => 'Upravljanje radnim prostorom i salama za sastanke',
+    'subtitle' => 'Sistem za rezervaciju sala za sastanke',
+
+    // Status
+    'status_free' => 'Slobodno',
+    'status_busy' => 'Zauzeto',
+    'status_closed' => 'Zatvoreno',
+    'status_confirmed' => 'Potvrđeno',
+    'status_cancelled' => 'Otkazano',
+    'status_rescheduled' => 'Pomereno',
+
+    // Navigation
+    'nav_home' => 'Početna',
+    'nav_rooms' => 'Sale uživo',
+    'nav_schedule' => 'Dnevni raspored',
+    'nav_docs' => 'Dokumentacija',
+    'nav_demo_login' => 'Demo prijava',
+    'nav_admin' => 'Admin panel',
+    'nav_logout' => 'Odjavi se',
+    'nav_dashboard' => 'Kontrolna tabla',
+    'nav_bookings' => 'Rezervacije',
+    'nav_calendar' => 'Kalendar',
+    'nav_settings' => 'Podešavanja',
+    'nav_emails' => 'Simulirana e-pošta',
+
+    // Booking Steps
+    'book_room' => 'Rezerviši salu',
+    'book_now' => 'Rezerviši odmah',
+    'choose_room' => 'Izaberite salu',
+    'choose_date' => 'Izaberite datum',
+    'choose_start_time' => 'Slobodno vreme početka',
+    'choose_duration' => 'Trajanje sastanka',
+    'meeting_details' => 'Detalji sastanka',
+    'title' => 'Naziv sastanka',
+    'agenda' => 'Dnevni red / Opis',
+    'organizer_name' => 'Vaše ime i prezime',
+    'organizer_email' => 'Vaša e-pošta',
+    'attendees_count' => 'Broj učesnika',
+    'max_capacity' => 'Maks. :capacity osoba',
+    'confirm_booking' => 'Potvrdi rezervaciju',
+    'minutes' => 'minuta',
+    'min' => 'min',
+    'people' => 'osoba',
+    'person' => 'osoba',
+
+    // Confirmation & Actions
+    'booking_confirmed' => 'Rezervacija je uspešno potvrđena!',
+    'reference_number' => 'Referentni broj',
+    'google_calendar' => 'Dodaj u Google kalendar',
+    'download_ics' => 'Preuzmi .ics (Outlook / Apple kalendar)',
+    'self_service_link' => 'Link za samouslužnu izmenu',
+    'self_service_help' => 'Ovaj link možete iskoristiti za promenu termina, sale ili otkazivanje pre početka sastanka.',
+    'open_email_outbox' => 'Pogledaj simuliranu email potvrdu',
+
+    // Self-Service Manage
+    'manage_title' => 'Izmeni ili otkaži rezervaciju',
+    'reschedule_title' => 'Premesti na drugi slobodan termin',
+    'cancel_title' => 'Otkaži ovu rezervaciju',
+    'save_changes' => 'Sačuvaj izmene',
+    'confirm_cancel' => 'Da, otkaži rezervaciju',
+    'cancel_modal_desc' => 'Da li ste sigurni da želite da otkažete ovu rezervaciju? Sala će odmah postati dostupna ostalim kolegama.',
+    'cancellation_reason' => 'Razlog otkazivanja (opciono)',
+    'locked_notice' => 'Ova rezervacija se više ne može menjati niti otkazati jer je sastanak već počeo ili je rezervacija prethodno otkazana.',
+
+    // Schedule
+    'daily_schedule' => 'Dnevni raspored',
+    'all_rooms_schedule' => 'Vremenska linija svih sala i sastanaka',
+    'prev_day' => 'Prethodni dan',
+    'today' => 'Danas',
+    'next_day' => 'Sledeći dan',
+    'company_events' => 'Događaji kompanije',
+    'no_events' => 'Nema zakazanih događaja kompanije za ovaj dan.',
+    'click_to_book' => 'Kliknite na slobodan termin za rezervaciju',
+
+    // Admin
+    'admin_dashboard' => 'Pregled radnog prostora i sala',
+    'today_bookings' => 'Današnje rezervacije',
+    'active_rooms' => 'Aktivne sale',
+    'busy_now' => 'Trenutno zauzeto',
+    'cancelled_today' => 'Otkazano danas',
+    'export_csv' => 'Izvezi u Excel (CSV)',
+    'restore' => 'Vrati rezervaciju',
+    'cancel' => 'Otkaži',
+    'edit' => 'Izmeni',
+    'view' => 'Pregledaj',
+    'add_room' => 'Dodaj novu salu',
+    'edit_room' => 'Izmeni salu',
+    'working_hours' => 'Radno vreme',
+    'holidays' => 'Praznici i neradni dani',
+    'time_step' => 'Korak vremena (minuti)',
+    'min_duration' => 'Minimalno trajanje',
+    'max_duration' => 'Maksimalno trajanje',
+    'booking_window' => 'Period za rezervacije (dana unapred)',
+    'office_email' => 'Email adresa kancelarije',
+    'save_settings' => 'Sačuvaj podešavanja',
+
+    // Demo
+    'demo_banner' => 'DEMO REŽIM — Simulirani mejlovi i instant promena uloga',
+    'switch_persona' => 'Promeni ulogu',
+    'reset_demo' => 'Resetuj demo podatke',
+    'outbox' => 'Izlazna pošta',
+];

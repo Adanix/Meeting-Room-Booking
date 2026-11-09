@@ -1,0 +1,106 @@
+<?php
+
+return [
+    'app_name' => 'ROOMS',
+    'app_tagline' => 'Enterprise Workspace Scheduling',
+    'subtitle' => 'Meeting Room Booking System',
+    
+    // Status
+    'status_free' => 'Free',
+    'status_busy' => 'Busy',
+    'status_closed' => 'Closed',
+    'status_confirmed' => 'Confirmed',
+    'status_cancelled' => 'Cancelled',
+    'status_rescheduled' => 'Rescheduled',
+
+    // Navigation
+    'nav_home' => 'Home',
+    'nav_rooms' => 'Live Rooms',
+    'nav_schedule' => 'Daily Schedule',
+    'nav_docs' => 'Documentation',
+    'nav_demo_login' => 'Demo Login',
+    'nav_admin' => 'Admin Panel',
+    'nav_logout' => 'Log Out',
+    'nav_dashboard' => 'Dashboard',
+    'nav_bookings' => 'Bookings',
+    'nav_calendar' => 'Calendar',
+    'nav_settings' => 'Settings',
+    'nav_emails' => 'Email Outbox',
+
+    // Booking Steps
+    'book_room' => 'Book a Room',
+    'book_now' => 'Book Now',
+    'choose_room' => 'Choose Room',
+    'choose_date' => 'Choose Date',
+    'choose_start_time' => 'Choose Free Start Time',
+    'choose_duration' => 'Choose Duration',
+    'meeting_details' => 'Meeting Details',
+    'title' => 'Meeting Title',
+    'agenda' => 'Agenda / Description',
+    'organizer_name' => 'Your Name',
+    'organizer_email' => 'Your Email',
+    'attendees_count' => 'Number of People',
+    'max_capacity' => 'Max :capacity people',
+    'confirm_booking' => 'Confirm Booking',
+    'minutes' => 'minutes',
+    'min' => 'min',
+    'people' => 'people',
+    'person' => 'person',
+
+    // Confirmation & Actions
+    'booking_confirmed' => 'Booking Confirmed!',
+    'reference_number' => 'Reference Number',
+    'google_calendar' => 'Add to Google Calendar',
+    'download_ics' => 'Download .ics (Outlook / Apple Calendar)',
+    'self_service_link' => 'Self-Service Management Link',
+    'self_service_help' => 'You can change the time, room, or cancel this booking using this link anytime before the meeting starts.',
+    'open_email_outbox' => 'Open Simulated Email Confirmation',
+
+    // Self-Service Manage
+    'manage_title' => 'Change or Cancel Booking',
+    'reschedule_title' => 'Move to Another Free Time',
+    'cancel_title' => 'Cancel This Booking',
+    'save_changes' => 'Save Changes',
+    'confirm_cancel' => 'Yes, Cancel Booking',
+    'cancel_modal_desc' => 'Are you sure you want to cancel this booking? This will immediately free the room for other colleagues.',
+    'cancellation_reason' => 'Cancellation Reason (Optional)',
+    'locked_notice' => 'This booking cannot be changed or cancelled because the meeting has already started or the reservation is already cancelled.',
+
+    // Schedule
+    'daily_schedule' => 'Daily Schedule',
+    'all_rooms_schedule' => 'All Rooms & Meetings Timeline',
+    'prev_day' => 'Previous Day',
+    'today' => 'Today',
+    'next_day' => 'Next Day',
+    'company_events' => 'Company Events',
+    'no_events' => 'No company events scheduled for this day.',
+    'click_to_book' => 'Click an open slot to book',
+
+    // Admin
+    'admin_dashboard' => 'Facilities & Workspace Dashboard',
+    'today_bookings' => "Today's Bookings",
+    'active_rooms' => 'Active Rooms',
+    'busy_now' => 'Busy Right Now',
+    'cancelled_today' => 'Cancelled Today',
+    'export_csv' => 'Export to Excel (CSV)',
+    'restore' => 'Restore',
+    'cancel' => 'Cancel',
+    'edit' => 'Edit',
+    'view' => 'View',
+    'add_room' => 'Add New Room',
+    'edit_room' => 'Edit Room',
+    'working_hours' => 'Working Hours',
+    'holidays' => 'Holidays & Closures',
+    'time_step' => 'Time Step Increment',
+    'min_duration' => 'Shortest Meeting Duration',
+    'max_duration' => 'Longest Meeting Duration',
+    'booking_window' => 'Booking Window (Days Ahead)',
+    'office_email' => 'Office Notification Email',
+    'save_settings' => 'Save Settings',
+
+    // Demo
+    'demo_banner' => 'DEMO MODE — Simulated Emails & Instant Role Switching',
+    'switch_persona' => 'Switch Persona',
+    'reset_demo' => 'Reset Demo Data',
+    'outbox' => 'Email Outbox',
+];
