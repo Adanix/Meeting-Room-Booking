@@ -48,7 +48,7 @@
                                 <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
                                 <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
                                 <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                                <span class="ml-2 text-[11px] font-mono text-slate-400">room-booking.adanix.my.id/rooms</span>
+                                <span class="ml-2 text-[11px] font-mono text-slate-400">rooms.enterprise.local/rooms</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
